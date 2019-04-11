@@ -1,11 +1,11 @@
 <template>
   <div class="continer">
     <h1>All Songs</h1>
-    <div v-for="song_version in song_versions">
-      {{ song_version.title }}
-      {{ song_version.artist }}
-      {{ song_version.label }}
-      {{ song_version.duration }}
+    <div v-for="song_version in song_versions" class="row">
+      <div class="col-md">{{ song_version.title }}</div>
+      <div class="col-md">{{ song_version.artist }}</div>
+      <div class="col-md">{{ song_version.label }}</div>
+      <div class="col-md">{{ song_version.duration }}</div>
     </div>
   </div>
 </template>
