@@ -1,9 +1,11 @@
 <template>
   <div class="continer">
     <h1>All Songs</h1>
-    <div v-for="song_version in song_versions" class="row">
-      <div class="col-md">{{ song_version.title }}</div>
-      <div class="col-md">{{ song_version.artist }}</div>
+    <div v-for="song_version in song_versions" class="row" @click="songSelect">
+      <div class="col-md">
+        {{ song_version.title }}
+        <div class="col-md">{{ song_version.artist }}</div>
+      </div>
       <div class="col-md">{{ song_version.label }}</div>
       <div class="col-md">{{ song_version.duration }}</div>
     </div>
@@ -24,6 +26,10 @@ export default {
       this.song_versions = response.data;
     });
   },
-  methods: {}
+  methods: {
+    songSelect: function() {
+      console.log(`You clicked `);
+    }
+  }
 };
 </script>
