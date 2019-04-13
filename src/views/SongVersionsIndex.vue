@@ -1,13 +1,15 @@
 <template>
   <div class="continer">
     <h2>All Songs</h2>
+    Search by song title or artist:
+    <input type="text" v-model="searchFilter" />
     <div class="row" id="title-bar">
       <div class="col-md-4"><h5>Title</h5></div>
       <div class="col-md-3"><h5>Artist</h5></div>
       <div class="col-md-2"><h5>Label</h5></div>
       <div class="col-md-2"><h5>Duration</h5></div>
     </div>
-    <div v-for="song_version in song_versions" class="row" id="songlist">
+    <div v-for="song_version in filterBy(song_versions, searchFilter, 'title', 'artist')" class="row" id="songlist">
       <div class="col-md-4">
         <span id="song-title">
           {{ song_version.title }}
