@@ -24,4 +24,8 @@ body {
 #songlist:nth-child(even) {
   background-color: #f2f2f2;
 }
+#song-title {
+  font-size: 110%;
+  font-weight: bold;
+}
 </style>

@@ -3,11 +3,13 @@
     <h2>All Songs</h2>
     <div v-for="song_version in song_versions" class="row" id="songlist">
       <div class="col-md-7">
-        {{ song_version.title }}
+        <span id="song-title">
+          {{ song_version.title }}
+        </span>
         <div class="col-md">{{ song_version.artist }}</div>
       </div>
       <div class="col-md-3">{{ song_version.label }}</div>
-      <div class="col-md-1">{{ song_version.duration }}</div>
+      <div class="col-md-1">{{ song_version.friendly_duration }}</div>
       <div class="col-md-1" id="add-queue" v-on:click="addToQueue(song_version)">Add to Queue</div>
     </div>
   </div>
