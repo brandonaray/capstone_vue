@@ -17,4 +17,11 @@
   </div>
 </template>
 
-<style></style>
+<style>
+body {
+  margin: 10px;
+}
+#songlist:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
