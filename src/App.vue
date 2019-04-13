@@ -28,4 +28,8 @@ body {
   font-size: 110%;
   font-weight: bold;
 }
+#title-bar {
+  background-color: #bfb7b7;
+  padding: 3px 0px 0px 0px;
+}
 </style>
