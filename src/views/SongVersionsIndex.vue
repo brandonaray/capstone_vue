@@ -1,15 +1,14 @@
 <template>
   <div class="continer">
     <h2>All Songs</h2>
-    <div v-for="song_version in song_versions" class="row" id="songlist" v-on:click="songSelect(song_version)">
-      <div class="col-md-6">
+    <div v-for="song_version in song_versions" class="row" id="songlist">
+      <div class="col-md-7">
         {{ song_version.title }}
         <div class="col-md">{{ song_version.artist }}</div>
       </div>
       <div class="col-md-3">{{ song_version.label }}</div>
       <div class="col-md-1">{{ song_version.duration }}</div>
-      <div class="col-md-1">Move to Top</div>
-      <div class="col-md-1">Delete</div>
+      <div class="col-md-1" id="add-queue" v-on:click="addToQueue(song_version)">Add to Queue</div>
     </div>
   </div>
 </template>
@@ -29,7 +28,7 @@ export default {
     });
   },
   methods: {
-    songSelect: function(selectedSong) {
+    addToQueue: function(selectedSong) {
       console.log(selectedSong.title);
     }
   }
