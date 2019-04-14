@@ -10,7 +10,11 @@
       <div class="col-md-2"><h5>Duration</h5></div>
     </div>
     <div
-      v-for="song_version in orderBy(filterBy(song_versions, searchFilter, 'title', 'artist'), sortAttribute)"
+      v-for="song_version in orderBy(
+        filterBy(song_versions, searchFilter, 'title', 'artist'),
+        sortAttribute,
+        sortAscending
+      )"
       class="row"
       id="songlist"
     >
@@ -37,7 +41,8 @@ export default {
     return {
       song_versions: [],
       searchFilter: "",
-      sortAttribute: "title"
+      sortAttribute: "title",
+      sortAscending: 1
     };
   },
   created: function() {
@@ -50,6 +55,15 @@ export default {
       console.log(selectedSong.title);
     },
     setSortAttribute: function(inputAttribute) {
+      if (this.sortAttribute === inputAttribute) {
+        if (this.sortAscending === 1) {
+          this.sortAscending = -1;
+        } else {
+          this.sortAscending = 1;
+        }
+      } else {
+        this.sortAscending = 1;
+      }
       this.sortAttribute = inputAttribute;
     }
   }
