@@ -4,12 +4,16 @@
     Search by song title or artist:
     <input type="text" v-model="searchFilter" />
     <div class="row" id="title-bar">
-      <div class="col-md-4"><h5>Title</h5></div>
-      <div class="col-md-3"><h5>Artist</h5></div>
+      <div class="col-md-4" v-on:click="setSortAttribute('title')"><h5>Title</h5></div>
+      <div class="col-md-3" v-on:click="setSortAttribute('artist')"><h5>Artist</h5></div>
       <div class="col-md-2"><h5>Label</h5></div>
       <div class="col-md-2"><h5>Duration</h5></div>
     </div>
-    <div v-for="song_version in filterBy(song_versions, searchFilter, 'title', 'artist')" class="row" id="songlist">
+    <div
+      v-for="song_version in orderBy(filterBy(song_versions, searchFilter, 'title', 'artist'), sortAttribute)"
+      class="row"
+      id="songlist"
+    >
       <div class="col-md-4">
         <span id="song-title">
           {{ song_version.title }}
@@ -32,7 +36,8 @@ export default {
   data: function() {
     return {
       song_versions: [],
-      searchFilter: ""
+      searchFilter: "",
+      sortAttribute: "title"
     };
   },
   created: function() {
@@ -43,6 +48,9 @@ export default {
   methods: {
     addToQueue: function(selectedSong) {
       console.log(selectedSong.title);
+    },
+    setSortAttribute: function(inputAttribute) {
+      this.sortAttribute = inputAttribute;
     }
   }
 };
