@@ -28,8 +28,12 @@ export default {
     return {
       email: "",
       password: "",
-      errors: []
+      errors: [],
+      jwt: null
     };
+  },
+  created: function() {
+    this.jwt = localStorage.jwt;
   },
   methods: {
     submit: function() {
