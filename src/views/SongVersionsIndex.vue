@@ -16,7 +16,7 @@
         sortAscending
       )"
       class="row"
-      id="songlist"
+      id="list"
     >
       <div class="col-md-4">
         <span id="song-title">

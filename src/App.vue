@@ -8,6 +8,8 @@
       <router-link to="/logout">Logout</router-link>
       |
       <router-link to="/songs">Songs</router-link>
+      |
+      <router-link to="/events">Events</router-link>
     </div>
     <router-view />
   </div>
@@ -17,7 +19,7 @@
 body {
   margin: 10px;
 }
-#songlist:nth-child(even) {
+#list:nth-child(even) {
   background-color: #f2f2f2;
 }
 #song-title {
