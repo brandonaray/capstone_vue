@@ -10,6 +10,8 @@
       <router-link to="/songs">Songs</router-link>
       |
       <router-link to="/events/join">Join Event</router-link>
+      |
+      <router-link to="/events/queue">Song Queue</router-link>
     </div>
     <router-view />
   </div>
