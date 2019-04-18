@@ -9,7 +9,7 @@
       |
       <router-link to="/songs">Songs</router-link>
       |
-      <router-link to="/events">Events</router-link>
+      <router-link to="/events/join">Join Event</router-link>
     </div>
     <router-view />
   </div>

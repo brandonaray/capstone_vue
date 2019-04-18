@@ -5,7 +5,7 @@ import Signup from "./views/Signup.vue";
 import Login from "./views/Login.vue";
 import Logout from "./views/Logout.vue";
 import SongVersionsIndex from "./views/SongVersionsIndex.vue";
-import Events from "./views/Events.vue";
+import EventUsersNew from "./views/EventUsersNew.vue";
 
 Vue.use(Router);
 
@@ -47,9 +47,9 @@ export default new Router({
       component: SongVersionsIndex
     },
     {
-      path: "/events",
-      name: "events",
-      component: Events
+      path: "/events/join",
+      name: "join",
+      component: EventUsersNew
     }
   ]
 });
