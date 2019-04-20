@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/signup">Signup</router-link>
+      <router-link to="/signup" v-if="!jwt">Signup</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link to="/login" v-if="!jwt">Login</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link to="/logout" v-if="jwt">Logout</router-link>
       |
-      <router-link to="/songs">Songs</router-link>
+      <router-link to="/songs" v-if="jwt">Songs</router-link>
       |
-      <router-link to="/events/join">Join Event</router-link>
+      <router-link to="/events/join" v-if="jwt">Join Event</router-link>
       |
-      <router-link to="/events/queue">Song Queue</router-link>
+      <router-link to="/events/queue" v-if="jwt">Song Queue</router-link>
     </div>
     <router-view />
   </div>
@@ -33,3 +33,17 @@ body {
   padding: 3px 0px 0px 0px;
 }
 </style>
+
+<script>
+export default {
+  data: function() {
+    return {
+      jwt: null
+    };
+  },
+  created: function() {
+    this.jwt = localStorage.jwt;
+    console.log("My jwt is", this.jwt);
+  }
+};
+</script>
