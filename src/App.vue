@@ -7,11 +7,11 @@
       |
       <router-link to="/logout" v-if="jwt">Logout</router-link>
       |
-      <router-link to="/songs" v-if="jwt">Songs</router-link>
+      <router-link to="/songs" v-if="jwt && event_token">Songs</router-link>
       |
-      <router-link to="/events/join" v-if="jwt">Join Event</router-link>
+      <router-link to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
       |
-      <router-link to="/events/queue" v-if="jwt">Song Queue</router-link>
+      <router-link to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
     </div>
     <router-view />
   </div>
@@ -38,12 +38,14 @@ body {
 export default {
   data: function() {
     return {
-      jwt: null
+      jwt: null,
+      event_token: localStorage.event_token
     };
   },
   created: function() {
     this.jwt = localStorage.jwt;
     console.log("My jwt is", this.jwt);
+    console.log("My event token is ", localStorage.event_token);
   }
 };
 </script>

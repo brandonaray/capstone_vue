@@ -53,6 +53,10 @@ export default {
   methods: {
     addToQueue: function(selectedSong) {
       console.log(selectedSong.title);
+      const params = {
+        song_version_id: selectedSong.id
+      };
+      axios.post("/api/event_songs", params);
     },
     setSortAttribute: function(inputAttribute) {
       if (this.sortAttribute === inputAttribute) {

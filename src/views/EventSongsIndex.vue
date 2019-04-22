@@ -12,7 +12,8 @@
         </span>
         <div class="col-md">{{ event_song.song_artist }}</div>
       </div>
-      <div class="col-md-4">{{ event_song.user_name }}</div>
+      <div class="col-md-3">{{ event_song.user_name }}</div>
+      <div class="col-md-1">{{ event_song.event_id }}</div>
       <div class="col-md-1" id="move-to-top" v-on:click="moveToTop(event_song)">Move to Top</div>
       <div class="col-md-1" id="add-queue" v-on:click="deleteFromQueue(event_song)">Delete</div>
     </div>

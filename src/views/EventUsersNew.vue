@@ -39,7 +39,8 @@ export default {
       axios
         .post("/api/event_users", params)
         .then(response => {
-          this.$router.push("/");
+          localStorage.setItem("event_token", this.event_token);
+          this.$router.push("/songs");
         })
         .catch(error => {
           this.errors = error.response.data.errors;
