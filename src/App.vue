@@ -13,7 +13,7 @@
       |
       <router-link to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
     </div>
-    <router-view />
+    <router-view v-on:changeJwt="setJwt()" />
   </div>
 </template>
 
@@ -46,6 +46,11 @@ export default {
     this.jwt = localStorage.jwt;
     console.log("My jwt is", this.jwt);
     console.log("My event token is ", localStorage.event_token);
+  },
+  methods: {
+    setJwt: function() {
+      this.jwt = localStorage.jwt;
+    }
   }
 };
 </script>
