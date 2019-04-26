@@ -40,6 +40,7 @@ export default {
         .post("/api/event_users", params)
         .then(response => {
           localStorage.setItem("event_token", this.event_token);
+          this.$emit("changeToken");
           this.$router.push("/songs");
         })
         .catch(error => {

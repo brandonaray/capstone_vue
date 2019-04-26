@@ -11,6 +11,7 @@ export default {
     localStorage.removeItem("jwt");
     this.$emit("changeJwt");
     localStorage.removeItem("event_token");
+    this.$emit("changeToken");
     this.$router.push("/login");
   }
 };
