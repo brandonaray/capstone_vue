@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="join-event">
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <h1>Join An Event</h1>

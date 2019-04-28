@@ -7,6 +7,8 @@ import Logout from "./views/Logout.vue";
 import SongVersionsIndex from "./views/SongVersionsIndex.vue";
 import EventUsersNew from "./views/EventUsersNew.vue";
 import EventSongsIndex from "./views/EventSongsIndex.vue";
+import EventsNew from "./views/EventsNew.vue";
+import EventsShow from "./views/EventsShow.vue";
 
 Vue.use(Router);
 
@@ -56,6 +58,16 @@ export default new Router({
       path: "/events/queue",
       name: "queue",
       component: EventSongsIndex
+    },
+    {
+      path: "/events/new",
+      name: "new-event",
+      component: EventsNew
+    },
+    {
+      path: "/events/show",
+      name: "event-show",
+      component: EventsShow
     }
   ]
 });

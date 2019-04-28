@@ -7,9 +7,11 @@
       |
       <router-link to="/logout" v-if="jwt">Logout</router-link>
       |
-      <router-link to="/songs" v-if="jwt && event_token">Songs</router-link>
+      <router-link to="/events/new" v-if="jwt">Create Event</router-link>
       |
       <router-link to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
+      |
+      <router-link to="/songs" v-if="jwt && event_token">Songs</router-link>
       |
       <router-link to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
     </div>
