@@ -1,6 +1,6 @@
 <template>
   <div class="create-event">
-    <div class="container">
+    <div class="event-form" v-if="!event_token">
       <form v-on:submit.prevent="submit()">
         <h1>Start A New Party</h1>
         <ul>
@@ -13,6 +13,13 @@
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
     </div>
+    <div class="event-created" v-if="event_token">
+      <h1>Tell Your Friends to Join the Party!</h1>
+      <h2>Your Party ID is:</h2>
+      <h2>{{ event.id }}</h2>
+      <h2>Your Party Token is:</h2>
+      <h2>{{ event_token }}</h2>
+    </div>
   </div>
 </template>
 
@@ -23,7 +30,8 @@ export default {
     return {
       event_duration: "",
       event: [],
-      errors: []
+      errors: [],
+      event_token: localStorage.event_token
     };
   },
   methods: {
@@ -36,16 +44,14 @@ export default {
         .then(response => {
           this.event = response.data;
           console.log(this.event.id);
-          console.log(this.event.event_token);
+          localStorage.setItem("event_token", this.event.event_token);
+          this.$emit("changeToken");
+          console.log(localStorage.event_token);
           const params = {
             event_id: this.event.id,
             event_token: this.event.event_token
           };
-          return axios.post("/api/event_users", params).then(response => {
-            localStorage.setItem("event_token", this.event_token);
-            this.$emit("changeToken");
-            this.$router.push("/songs");
-          });
+          return axios.post("/api/event_users", params).then(response => {});
         })
         .catch(error => {
           this.errors = error.response.data.errors;

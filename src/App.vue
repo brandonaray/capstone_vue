@@ -7,7 +7,7 @@
       |
       <router-link to="/logout" v-if="jwt">Logout</router-link>
       |
-      <router-link to="/events/new" v-if="jwt">Create Event</router-link>
+      <router-link to="/events/new" v-if="jwt && !event_token">Create Event</router-link>
       |
       <router-link to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
       |
