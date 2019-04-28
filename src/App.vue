@@ -11,6 +11,8 @@
       |
       <router-link to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
       |
+      <router-link to="/events/player" v-if="jwt && event_token">Go to Event</router-link>
+      |
       <router-link to="/songs" v-if="jwt && event_token">Songs</router-link>
       |
       <router-link to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
@@ -33,6 +35,19 @@ body {
 #title-bar {
   background-color: #bfb7b7;
   padding: 3px 0px 0px 0px;
+}
+.player {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
 

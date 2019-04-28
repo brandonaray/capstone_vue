@@ -8,6 +8,7 @@ import SongVersionsIndex from "./views/SongVersionsIndex.vue";
 import EventUsersNew from "./views/EventUsersNew.vue";
 import EventSongsIndex from "./views/EventSongsIndex.vue";
 import EventsNew from "./views/EventsNew.vue";
+import PlayScreen from "./views/PlayScreen.vue";
 
 Vue.use(Router);
 
@@ -59,9 +60,9 @@ export default new Router({
       component: EventSongsIndex
     },
     {
-      path: "/events/new",
-      name: "new-event",
-      component: EventsNew
+      path: "/events/player",
+      name: "event-player",
+      component: PlayScreen
     }
   ]
 });
