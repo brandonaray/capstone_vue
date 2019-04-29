@@ -17,7 +17,7 @@
       |
       <router-link to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
     </div>
-    <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken" />
+    <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken()" />
   </div>
 </template>
 

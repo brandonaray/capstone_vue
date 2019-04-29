@@ -16,10 +16,11 @@
     <div class="event-created" v-if="event_token">
       <h1>Tell Your Friends to Join the Party!</h1>
       <h2>Your Party ID is:</h2>
-      <h2>{{ event.id }}</h2>
+      <h2>{{ event.event_duration }}</h2>
       <h2>Your Party Token is:</h2>
       <h2>{{ event_token }}</h2>
     </div>
+    <router-view v-on:changeToken="setToken()" />
   </div>
 </template>
 
@@ -43,15 +44,17 @@ export default {
         .post("/api/events", params)
         .then(response => {
           this.event = response.data;
-          console.log(this.event.id);
+          console.log(this.event);
           localStorage.setItem("event_token", this.event.event_token);
-          this.$emit("changeToken");
           console.log(localStorage.event_token);
+          this.$emit("changeToken");
           const params = {
             event_id: this.event.id,
             event_token: this.event.event_token
           };
-          return axios.post("/api/event_users", params).then(response => {});
+          return axios.post("/api/event_users", params).then(response => {
+            this.$router.push("/events/new");
+          });
         })
         .catch(error => {
           this.errors = error.response.data.errors;
