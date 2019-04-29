@@ -63,6 +63,11 @@ export default new Router({
       path: "/events/player",
       name: "event-player",
       component: PlayScreen
+    },
+    {
+      path: "/events/new",
+      name: "create-event",
+      component: EventsNew
     }
   ]
 });
