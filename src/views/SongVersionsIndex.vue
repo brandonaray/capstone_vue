@@ -1,8 +1,30 @@
 <template>
   <div class="continer">
     <h2>All Songs</h2>
-    Search by song title or artist:
-    <input type="text" v-model="searchFilter" />
+    <form novalidate="novalidate" onsubmit="return false;" class="searchbox sbx-custom">
+      <div role="search" class="sbx-custom__wrapper">
+        <input
+          type="search"
+          name="search"
+          placeholder="Search by artist or song title"
+          autocomplete="off"
+          required="required"
+          class="sbx-custom__input"
+          v-model="searchFilter"
+        />
+        <button type="submit" title="Submit your search query." class="sbx-custom__submit">
+          <svg role="img" aria-label="Search">
+            <use xlink:href="#sbx-icon-search-23"></use>
+          </svg>
+        </button>
+        <button type="reset" title="Clear the search query." class="sbx-custom__reset">
+          <svg role="img" aria-label="Reset">
+            <use xlink:href="#sbx-icon-clear-5"></use>
+          </svg>
+        </button>
+      </div>
+    </form>
+
     <div class="row" id="title-bar">
       <div class="col-md-4" v-on:click="setSortAttribute('title')"><h5>Title</h5></div>
       <div class="col-md-3" v-on:click="setSortAttribute('artist')"><h5>Artist</h5></div>

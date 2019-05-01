@@ -12,6 +12,20 @@
     />
     <link rel="stylesheet" href="vue-instant/dist/vue-instant.css" class="stylesheet" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-23" viewBox="0 0 40 40">
+        <path
+          d="M21.728 22.597c-2.308 2.1-5.374 3.38-8.74 3.38C5.815 25.977 0 20.162 0 12.987 0 5.816 5.815 0 12.988 0c7.174 0 12.99 5.815 12.99 12.988 0 3.366-1.28 6.433-3.38 8.74 1.943-1.516 4.76-1.376 6.542.404l9.41 9.41c1.934 1.934 1.928 5.074-.003 7.005-1.935 1.935-5.077 1.93-7.004.004l-9.41-9.41c-1.787-1.786-1.918-4.602-.405-6.543zm-8.74-.235c5.177 0 9.374-4.197 9.374-9.374 0-5.176-4.197-9.373-9.374-9.373-5.176 0-9.373 4.197-9.373 9.373 0 5.177 4.197 9.374 9.373 9.374zm11.687 4.975c-.732-.733-.735-1.917.005-2.657.735-.735 1.93-.732 2.657-.005l9.104 9.104c.733.73.736 1.916-.004 2.656-.735.735-1.93.73-2.657.005l-9.105-9.103z"
+          fill-rule="evenodd"
+        />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-5" viewBox="0 0 20 20">
+        <path
+          d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm1.35-10.123l3.567 3.568-1.225 1.226-3.57-3.568-3.567 3.57-1.226-1.227 3.568-3.568-3.57-3.57 1.227-1.224 3.568 3.568 3.57-3.567 1.224 1.225-3.568 3.57zM10 18.272c4.568 0 8.272-3.704 8.272-8.272S14.568 1.728 10 1.728 1.728 5.432 1.728 10 5.432 18.272 10 18.272z"
+          fill-rule="evenodd"
+        />
+      </symbol>
+    </svg>
     <title>capstone_vue</title>
   </head>
   <body>
@@ -40,5 +54,10 @@
     <script src="vue.js"></script>
     <script src="vue-clickaway.js"></script>
     <script src="vue-instant/dist/vue-instant.browser.js"></script>
+    <script type="text/javascript">
+      document.querySelector('.searchbox [type="reset"]').addEventListener("click", function() {
+        this.parentNode.querySelector("input").focus();
+      });
+    </script>
   </body>
 </html>
