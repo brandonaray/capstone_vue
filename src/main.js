@@ -4,7 +4,9 @@ import router from "./router";
 import axios from "axios";
 import "vue-instant/dist/vue-instant.css";
 import VueInstant from "vue-instant";
+import VueQriously from "vue-qriously";
 Vue.use(VueInstant);
+Vue.use(VueQriously);
 
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "/";
 
