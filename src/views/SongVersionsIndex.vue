@@ -24,7 +24,6 @@
         </button>
       </div>
     </form>
-
     <div class="row" id="title-bar">
       <div class="col-md-4" v-on:click="setSortAttribute('title')"><h5>Title</h5></div>
       <div class="col-md-3" v-on:click="setSortAttribute('artist')"><h5>Artist</h5></div>
