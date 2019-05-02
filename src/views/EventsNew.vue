@@ -20,7 +20,7 @@
       <h2>Your Party Token is:</h2>
       <h2>{{ event_token }}</h2>
       <h2>Or scan from your smartphone:</h2>
-      <qriously value="id=12" :size="200" />
+      <qriously id="qr" value="/events/join" :size="200" />
     </div>
     <router-view v-on:changeToken="setToken()" />
   </div>
