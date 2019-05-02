@@ -13,7 +13,8 @@
     "vue-instant": "^1.0.4",
     "vue-qriously": "^1.1.1",
     "vue-router": "^3.0.1",
-    "vue2-filters": "^0.6.0"
+    "vue2-filters": "^0.6.0",
+    "vuedraggable": "^2.20.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",

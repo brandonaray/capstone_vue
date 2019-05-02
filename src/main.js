@@ -5,8 +5,10 @@ import axios from "axios";
 import "vue-instant/dist/vue-instant.css";
 import VueInstant from "vue-instant";
 import VueQriously from "vue-qriously";
+import draggable from "vuedraggable";
 Vue.use(VueInstant);
 Vue.use(VueQriously);
+Vue.use(draggable);
 
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "/";
 
