@@ -3,13 +3,13 @@
     <div class="nav">
       <img alt="KHP logo" src="./assets/KHP-logo.png" />
       <ul>
-        <router-link tag="li" to="/signup" v-if="!jwt">Signup</router-link>
-        <router-link tag="li" to="/login" v-if="!jwt">Login</router-link>
-        <router-link tag="li" to="/events/new" v-if="jwt && !event_token">Create Event</router-link>
-        <router-link tag="li" to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
-        <router-link tag="li" to="/songs" v-if="jwt && event_token">Browse Songs</router-link>
-        <router-link tag="li" to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
-        <router-link tag="li" to="/categories" v-if="jwt && event_token">Categories</router-link>
+        <router-link tag="li" to="/signup" v-if="!jwt"><span>Signup</span></router-link>
+        <router-link tag="li" to="/login" v-if="!jwt"><span>Login</span></router-link>
+        <router-link tag="li" to="/events/new" v-if="jwt && !event_token"><span>Create Event</span></router-link>
+        <router-link tag="li" to="/events/join" v-if="jwt && !event_token"><span>Join Event</span></router-link>
+        <router-link tag="li" to="/songs" v-if="jwt && event_token"><span>Browse Songs</span></router-link>
+        <router-link tag="li" to="/events/queue" v-if="jwt && event_token"><span>Song Queue</span></router-link>
+        <router-link tag="li" to="/categories" v-if="jwt && event_token"><span>Categories</span></router-link>
         <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
       </ul>
     </div>
@@ -54,9 +54,16 @@ body {
   font-size: 18px;
   color: #f5fefe;
   padding-right: 72px;
-}
-.nav li a {
+  padding-bottom: 22px;
   display: block;
+}
+.nav span {
+  padding-bottom: 21px;
+  user-select: none;
+}
+.nav span:hover {
+  border-bottom: solid #f42ea0 5px;
+  box-shadow: 0 4px 2px -2px #ff3cac;
 }
 #logout {
   font-family: Muli;
