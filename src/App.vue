@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <div class="nav col-md-12">
-      <img class="col-md-5" alt="KHP logo" src="./assets/KHP-logo.png" />
-      <div class="nav-main col-md-6">
-        <router-link to="/signup" v-if="!jwt">Signup</router-link>
-        <router-link to="/login" v-if="!jwt">Login</router-link>
-        <router-link to="/events/new" v-if="jwt && !event_token">Create Event</router-link>
-        <router-link to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
-        <router-link to="/songs" v-if="jwt && event_token">Browse Songs</router-link>
-        <router-link to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
-        <router-link to="/categories" v-if="jwt && event_token">Categories</router-link>
-      </div>
-      <router-link class="col-md-1" to="/logout" v-if="jwt">Logout</router-link>
+  <div class="app">
+    <div class="nav">
+      <img alt="KHP logo" src="./assets/KHP-logo.png" />
+      <ul>
+        <router-link tag="li" to="/signup" v-if="!jwt">Signup</router-link>
+        <router-link tag="li" to="/login" v-if="!jwt">Login</router-link>
+        <router-link tag="li" to="/events/new" v-if="jwt && !event_token">Create Event</router-link>
+        <router-link tag="li" to="/events/join" v-if="jwt && !event_token">Join Event</router-link>
+        <router-link tag="li" to="/songs" v-if="jwt && event_token">Browse Songs</router-link>
+        <router-link tag="li" to="/events/queue" v-if="jwt && event_token">Song Queue</router-link>
+        <router-link tag="li" to="/categories" v-if="jwt && event_token">Categories</router-link>
+        <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
+      </ul>
     </div>
     <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken()" />
   </div>
@@ -33,30 +33,38 @@ body {
   max-width: 1440px;
 }
 .nav {
+  padding: 0;
   height: 83px;
-  max-width: 1140px;
-  margin-top: 27px;
-  margin-left: 150px;
-  margin-right: 150px;
-  border: white solid 2px;
+  width: 1140px;
+  overflow: hidden;
+  margin: 27px 150px 45px 150px;
+}
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 292px;
+  width: 680px;
 }
 .nav img {
-  height: 100%;
-  object-fit: contain;
-  text-align: left;
-  border: white solid 2px;
+  height: 83px;
 }
-.nav-main {
-  padding-left: 292px;
-}
-.nav-main a {
+.nav li {
+  float: left;
   font-family: Bungee;
   font-size: 18px;
   color: #f5fefe;
-  text-decoration: none;
-  display: inline;
-  border: white solid 2px;
-  text-align: left;
+  padding-right: 72px;
+}
+.nav li a {
+  display: block;
+}
+#logout {
+  font-family: Muli;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  color: #e1ebeb;
+  float: right;
+  padding: 0;
 }
 .player {
   position: relative;
