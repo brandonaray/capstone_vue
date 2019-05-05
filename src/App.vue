@@ -93,7 +93,7 @@ body {
   text-align: right;
 }
 .song-list {
-  width: 1140px;
+  width: 1138px;
   height: 545px;
   border: solid 1px #4a42bf;
   background-color: #050424;
@@ -101,9 +101,11 @@ body {
 }
 #title-bar {
   background-color: #56ffcf;
-  height: 52px;
+  height: 51px;
   width: 1138px;
   margin: 0;
+  border: solid 1px #4a42bf;
+  border-bottom: none;
 }
 .bar-el {
   padding: 17px 0px 16px 31px;
@@ -155,6 +157,17 @@ h5 {
 .add-queue:active {
   border-image-source: linear-gradient(to left, #ff6602, #f42ea0);
 }
+.queue-btn {
+  font-family: Muli;
+  font-size: 14px;
+  color: #f42ea0;
+  padding: 17px 0px 16px 31px;
+  user-select: none;
+  cursor: pointer;
+}
+#move-top {
+  padding-left: 0;
+}
 .player {
   position: relative;
   width: 100%;
@@ -167,6 +180,16 @@ h5 {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.flip-list-move {
+  transition: transform 0.5s;
+}
+.no-move {
+  transition: transform 0s;
+}
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
 }
 </style>
 

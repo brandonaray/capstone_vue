@@ -33,24 +33,22 @@
         <div class="col-md-2 bar-el"><h5>Duration</h5></div>
       </div>
       <div class="song-list">
-        <div class="list-wrapper">
-          <div
-            v-for="song_version in orderBy(
-              filterBy(song_versions, searchFilter, 'title', 'artist'),
-              sortAttribute,
-              sortAscending
-            )"
-            class="row"
-            id="songs"
-          >
-            <div class="col-md-5 list-el">{{ song_version.title }}</div>
-            <div class="col-md-3 list-el">{{ song_version.artist }}</div>
-            <div class="col-md-2 list-el">{{ song_version.friendly_duration }}</div>
-            <div class="col-md-2">
-              <button class="add-queue" v-on:click="addToQueue(song_version)">
-                Add to Queue
-              </button>
-            </div>
+        <div
+          v-for="song_version in orderBy(
+            filterBy(song_versions, searchFilter, 'title', 'artist'),
+            sortAttribute,
+            sortAscending
+          )"
+          class="row"
+          id="songs"
+        >
+          <div class="col-md-5 list-el">{{ song_version.title }}</div>
+          <div class="col-md-3 list-el">{{ song_version.artist }}</div>
+          <div class="col-md-2 list-el">{{ song_version.friendly_duration }}</div>
+          <div class="col-md-2">
+            <button class="add-queue" v-on:click="addToQueue(song_version)">
+              Add to Queue
+            </button>
           </div>
         </div>
       </div>

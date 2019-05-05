@@ -1,26 +1,26 @@
 <template>
   <div class="continer">
-    <h2>Song Queue</h2>
-    <div class="row" id="title-bar">
-      <div class="col-md-6"><h5>Song</h5></div>
-      <div class="col-md-4"><h5>User</h5></div>
+    <div class="content">
+      <h2>Song Queue</h2>
+      <div class="row" id="title-bar">
+        <div class="col-md-5 bar-el"><h5>Song</h5></div>
+        <div class="col-md-3 bar-el"><h5>Artist</h5></div>
+        <div class="col-md-2 bar-el"><h5>User</h5></div>
+      </div>
+      <div class="song-list">
+        <draggable v-model="event_songs" group="queue" v-bind="dragOptions" @start="drag = true" @end="drag = false">
+          <transition-group type="transition" :name="!drag ? 'flip-list' : null">
+            <div v-for="event_song in event_songs" :key="event_song.id" class="row" id="songs">
+              <div class="col-md-5 list-el">{{ event_song.song_title }}</div>
+              <div class="col-md-3 list-el">{{ event_song.song_artist }}</div>
+              <div class="col-md-2 list-el">{{ event_song.user_name }}</div>
+              <div class="col-md-1 queue-btn" id="move-top" v-on:click="moveToTop(event_song)">Move to Top</div>
+              <div class="col-md-1 queue-btn" v-on:click="deleteFromQueue(event_song)">Delete</div>
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
     </div>
-    <draggable v-model="event_songs" group="queue" v-bind="dragOptions" @start="drag = true" @end="drag = false">
-      <transition-group type="transition" :name="!drag ? 'flip-list' : null">
-        <div v-for="event_song in event_songs" :key="event_song.id" class="row" id="list">
-          <div class="col-md-6">
-            <span id="song-title">
-              {{ event_song.song_title }}
-            </span>
-            <div class="col-md">{{ event_song.song_artist }}</div>
-          </div>
-          <div class="col-md-3">{{ event_song.user_name }}</div>
-          <div class="col-md-1">{{ event_song.event_id }}</div>
-          <div class="col-md-1" id="move-to-top" v-on:click="moveToTop(event_song)">Move to Top</div>
-          <div class="col-md-1" id="add-queue" v-on:click="deleteFromQueue(event_song)">Delete</div>
-        </div>
-      </transition-group>
-    </draggable>
   </div>
 </template>
 
@@ -66,15 +66,3 @@ export default {
   }
 };
 </script>
-<style>
-.flip-list-move {
-  transition: transform 0.5s;
-}
-.no-move {
-  transition: transform 0s;
-}
-.ghost {
-  opacity: 0.5;
-  background: #c8ebfb;
-}
-</style>
