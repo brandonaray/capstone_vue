@@ -66,6 +66,20 @@ export default {
     },
     moveToTop: function(selectedSong) {
       console.log(selectedSong.song_title + " has been moved to the top of the queue!");
+      let index = this.event_songs.indexOf(selectedSong);
+      if (index !== 0) {
+        this.event_songs.splice(index, 1);
+        this.event_songs.splice(0, 0, selectedSong);
+        const idArray = [];
+        this.event_songs.forEach(function(song) {
+          idArray.push(song.id);
+        });
+        console.log(idArray);
+        const params = {
+          ids: idArray
+        };
+        axios.patch("api/event_songs", params);
+      }
     },
     deleteFromQueue: function(selectedSong) {
       axios.delete("api/event_songs/" + selectedSong.id).then(response => {
