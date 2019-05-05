@@ -8,7 +8,16 @@
         <div class="col-md-2 bar-el"><h5>User</h5></div>
       </div>
       <div class="song-list">
-        <draggable v-model="event_songs" group="queue" v-bind="dragOptions" @start="drag = true" @end="drag = false">
+        <draggable
+          v-model="event_songs"
+          group="queue"
+          v-bind="dragOptions"
+          @start="drag = true"
+          @end="
+            drag = false;
+            dragSort();
+          "
+        >
           <transition-group type="transition" :name="!drag ? 'flip-list' : null">
             <div v-for="event_song in event_songs" :key="event_song.id" class="row" id="songs">
               <div class="col-md-5 list-el">{{ event_song.song_title }}</div>
@@ -44,6 +53,17 @@ export default {
     });
   },
   methods: {
+    dragSort: function() {
+      const idArray = [];
+      this.event_songs.forEach(function(song) {
+        idArray.push(song.id);
+      });
+      console.log(idArray);
+      const params = {
+        ids: idArray
+      };
+      axios.patch("api/event_songs", params);
+    },
     moveToTop: function(selectedSong) {
       console.log(selectedSong.song_title + " has been moved to the top of the queue!");
     },
