@@ -104,8 +104,6 @@ body {
   height: 52px;
   width: 1138px;
   margin: 0;
-  position: fixed;
-  z-index: 1000;
 }
 .bar-el {
   padding: 17px 0px 16px 31px;
@@ -117,9 +115,7 @@ h5 {
   color: #2b2672;
   user-select: none;
 }
-.list-wrapper {
-  margin-top: 53px;
-}
+
 #songs {
   border: solid #4a42bf 1px;
   max-width: 1138px;

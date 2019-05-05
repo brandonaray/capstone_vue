@@ -27,12 +27,12 @@
           </div>
         </form>
       </div>
+      <div class="row" id="title-bar">
+        <div class="col-md-5 bar-el" v-on:click="setSortAttribute('title')"><h5>Title</h5></div>
+        <div class="col-md-3 bar-el" v-on:click="setSortAttribute('artist')"><h5>Artist</h5></div>
+        <div class="col-md-2 bar-el"><h5>Duration</h5></div>
+      </div>
       <div class="song-list">
-        <div class="row" id="title-bar">
-          <div class="col-md-5 bar-el" v-on:click="setSortAttribute('title')"><h5>Title</h5></div>
-          <div class="col-md-3 bar-el" v-on:click="setSortAttribute('artist')"><h5>Artist</h5></div>
-          <div class="col-md-2 bar-el"><h5>Duration</h5></div>
-        </div>
         <div class="list-wrapper">
           <div
             v-for="song_version in orderBy(
