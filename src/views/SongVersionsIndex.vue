@@ -172,10 +172,19 @@ h5 {
   border-width: 1px;
   border-image-source: linear-gradient(to right, #ff6602, #f42ea0);
   border-image-slice: 1;
-  background-color: transparent;
+  background-color: #090819;
   font-family: Bungee;
   font-size: 15px;
   color: #f5fefe;
   margin: 12px 27px 14px 0px;
+}
+.add-queue:hover {
+  box-shadow: 0 0 8px 0 #ff3cac;
+}
+.add-queue:focus {
+  outline: none;
+}
+.add-queue:active {
+  border-image-source: linear-gradient(to left, #ff6602, #f42ea0);
 }
 </style>
