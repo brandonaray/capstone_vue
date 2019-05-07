@@ -1,5 +1,5 @@
 <template>
-  <div class="continer">
+  <div class="wrapper">
     <div class="content">
       <h2>Song Queue</h2>
       <div class="row" id="title-bar">

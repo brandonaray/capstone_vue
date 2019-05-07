@@ -1,5 +1,5 @@
 <template>
-  <div class="continer">
+  <div class="wrapper">
     <div class="content">
       <h2>All Songs</h2>
       <div class="form-wrapper">

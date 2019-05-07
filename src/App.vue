@@ -1,10 +1,8 @@
 <template>
   <div class="app">
-    <div class="nav">
+    <div class="nav" v-if="jwt">
       <img alt="KHP logo" src="./assets/KHP-logo.png" />
       <ul>
-        <router-link tag="li" to="/signup" v-if="!jwt"><span>Signup</span></router-link>
-        <router-link tag="li" to="/login" v-if="!jwt"><span>Login</span></router-link>
         <router-link tag="li" to="/events/new" v-if="jwt && !event_token"><span>Create Event</span></router-link>
         <router-link tag="li" to="/events/join" v-if="jwt && !event_token"><span>Join Event</span></router-link>
         <router-link tag="li" to="/songs" v-if="jwt && event_token"><span>Browse Songs</span></router-link>
@@ -23,6 +21,7 @@ html {
 }
 body {
   height: 100%;
+  margin: 0;
   font-family: "Muli", sans-serif;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -72,6 +71,34 @@ body {
   color: #e1ebeb;
   float: right;
   padding: 0;
+}
+.login-wrapper {
+  margin-left: 50%;
+}
+.big-logo {
+  width: 331px;
+  height: 168px;
+  background-color: #transparent;
+  margin: 119px 0px 53px -165px;
+}
+.form-group label {
+  font-family: Bungee;
+  font-size: 20px;
+  font-weight: bold;
+  color: #f5fefe;
+  margin-left: -266px;
+}
+.form-control {
+  width: 532px;
+  height: 58px;
+  border: solid 1px #4a42bf;
+  background-color: #050424;
+  border-radius: 0;
+  margin-left: -266px;
+}
+.form-control:focus {
+  background-color: inherit;
+  color: #f5fefe;
 }
 .content {
   width: 1140px;
@@ -190,6 +217,24 @@ h5 {
 .ghost {
   opacity: 0.5;
   background: #c8ebfb;
+}
+#qr {
+  background-color: #f5fefe;
+  height: 200px;
+  width: 200px;
+}
+.fun-button {
+  width: 238px;
+  height: 52px;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #ff6602, #f42ea0);
+  font-family: Bungee;
+  font-size: 20;
+  color: #f5fefe;
+  outline: none;
+}
+.login-wrapper .fun-button {
+  margin: 56px 0px 29px -119px;
 }
 </style>
 

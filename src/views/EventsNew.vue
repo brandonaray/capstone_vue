@@ -1,8 +1,8 @@
 <template>
   <div class="create-event">
-    <div class="event-form" v-if="!event_token">
+    <div class="content" v-if="!event_token">
       <form v-on:submit.prevent="submit()">
-        <h1>Start A New Party</h1>
+        <h2>Start A New Party</h2>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
@@ -10,7 +10,7 @@
           <label>Choose Party Length (minutes):</label>
           <input type="number" class="form-control" v-model.number="event_duration" />
         </div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
+        <input type="submit" class="fun-button" value="Submit" />
       </form>
     </div>
     <div class="event-created" v-if="event_token">
