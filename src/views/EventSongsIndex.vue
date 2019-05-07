@@ -36,6 +36,7 @@
 <script>
 import axios from "axios";
 import draggable from "vuedraggable";
+import ActionCable from "actioncable";
 
 export default {
   components: {
@@ -50,6 +51,21 @@ export default {
   created: function() {
     axios.get("api/event_songs").then(response => {
       this.event_songs = response.data;
+    });
+    var cable = ActionCable.createConsumer("ws://localhost:3000/cable");
+    cable.subscriptions.create("MessagesChannel", {
+      connected: () => {
+        // Called when the subscription is ready for use on the server
+        console.log("Connected to MessagesChannel");
+      },
+      disconnected: () => {
+        // Called when the subscription has been terminated by the server
+      },
+      received: data => {
+        // Called when there's incoming data on the websocket for this channel
+        console.log("Data from MessagesChannel:", data);
+        location.reload(true);
+      }
     });
   },
   methods: {
