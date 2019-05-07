@@ -1,8 +1,8 @@
 <template>
   <div class="signup">
-    <div class="container">
+    <div class="login-wrapper">
+      <img alt="KHP logo" class="big-logo" src="../assets/KHP-logo.png" />
       <form v-on:submit.prevent="submit()">
-        <h1>Signup</h1>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
@@ -22,8 +22,11 @@
           <label>Password confirmation:</label>
           <input type="password" class="form-control" v-model="passwordConfirmation" />
         </div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
+        <input type="submit" class="fun-button" value="Submit" />
       </form>
+      <div class="login-link">
+        <router-link to="/login">Login</router-link>
+      </div>
     </div>
   </div>
 </template>

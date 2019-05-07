@@ -16,6 +16,9 @@
         </div>
         <input type="submit" class="fun-button" value="Submit" />
       </form>
+      <div class="signup-link">
+        <router-link to="/signup">Sign Up</router-link>
+      </div>
     </div>
   </div>
 </template>

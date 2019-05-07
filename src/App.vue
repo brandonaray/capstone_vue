@@ -8,8 +8,8 @@
         <router-link tag="li" to="/songs" v-if="jwt && event_token"><span>Browse Songs</span></router-link>
         <router-link tag="li" to="/events/queue" v-if="jwt && event_token"><span>Song Queue</span></router-link>
         <router-link tag="li" to="/categories" v-if="jwt && event_token"><span>Categories</span></router-link>
-        <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
       </ul>
+      <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
     </div>
     <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken()" />
   </div>
@@ -100,6 +100,33 @@ body {
   background-color: inherit;
   color: #f5fefe;
 }
+.signup .big-logo {
+  margin: 75px 0px 35px -124px;
+  width: 248px;
+  height: 126px;
+}
+.signup-link {
+  width: 100px;
+  margin-left: -50px;
+  text-align: center;
+}
+.signup-link a {
+  font-family: Muli;
+  font-size: 17px;
+  color: #f5fefe;
+  user-select: none;
+}
+.login-link {
+  width: 100px;
+  margin-left: -50px;
+  text-align: center;
+}
+.login-link a {
+  font-family: Muli;
+  font-size: 17px;
+  color: #f5fefe;
+  user-select: none;
+}
 .content {
   width: 1140px;
   margin: 0px 150px;
@@ -144,7 +171,6 @@ h5 {
   color: #2b2672;
   user-select: none;
 }
-
 #songs {
   border: solid #4a42bf 1px;
   max-width: 1138px;
@@ -235,6 +261,9 @@ h5 {
 }
 .login-wrapper .fun-button {
   margin: 56px 0px 29px -119px;
+}
+.signup .fun-button {
+  margin: 30px 0px 29px -119px;
 }
 </style>
 
