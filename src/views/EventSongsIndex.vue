@@ -64,7 +64,9 @@ export default {
       received: data => {
         // Called when there's incoming data on the websocket for this channel
         console.log("Data from MessagesChannel:", data);
-        location.reload(true);
+        axios.get("api/event_songs").then(response => {
+          this.event_songs = response.data;
+        });
       }
     });
   },
