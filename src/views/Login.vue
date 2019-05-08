@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="login-wrapper">
+    <div class="login-wrapper" v-if="!jwt">
       <img alt="KHP logo" class="big-logo" src="../assets/KHP-logo.png" />
       <form v-on:submit.prevent="submit()">
         <ul>
@@ -19,6 +19,15 @@
       <div class="signup-link">
         <router-link to="/signup">Sign Up</router-link>
       </div>
+    </div>
+    <div class="event-join-wrapper" v-if="jwt">
+      <a href="/events/new">
+        <div class="start-event">Start A Party</div>
+      </a>
+      <h6>or</h6>
+      <a href="/events/join">
+        <div class="join-event">Join A Party</div>
+      </a>
     </div>
   </div>
 </template>
@@ -50,7 +59,7 @@ export default {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           this.$emit("changeJwt");
-          this.$router.push("/events/join");
+          location.reload(true);
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];

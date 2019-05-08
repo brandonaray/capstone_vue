@@ -3,13 +3,15 @@
     <div class="nav" v-if="jwt">
       <img alt="KHP logo" src="./assets/KHP-logo.png" />
       <ul>
-        <router-link tag="li" to="/songs" v-if="jwt && event_token"><span>Browse Songs</span></router-link>
-        <router-link tag="li" to="/events/queue" v-if="jwt && event_token"><span>Song Queue</span></router-link>
-        <router-link tag="li" to="/categories" v-if="jwt && event_token"><span>Categories</span></router-link>
+        <router-link tag="li" to="/songs" v-if="jwt && event_token && !admin"><span>Browse Songs</span></router-link>
+        <router-link tag="li" to="/events/queue" v-if="jwt && event_token && !admin">
+          <span>Song Queue</span>
+        </router-link>
+        <router-link tag="li" to="/categories" v-if="jwt && event_token && !admin"><span>Categories</span></router-link>
         <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
       </ul>
     </div>
-    <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken()" />
+    <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken()" v-on:changeStatus="setStatus()" />
   </div>
 </template>
 
@@ -25,6 +27,9 @@ body {
   background-attachment: fixed;
   background-image: linear-gradient(to bottom, #222045, #090819 23%, #090819);
   color: #f5fefe;
+}
+a:hover {
+  text-decoration: none;
 }
 .app {
   max-width: 1440px;
@@ -69,9 +74,47 @@ body {
   color: #f5fefe;
   float: right;
   padding: 0;
+  user-select: none;
 }
 .login-wrapper {
   margin-left: 50%;
+}
+.event-join-wrapper {
+  margin-left: 50%;
+  margin-top: 110px;
+}
+.event-join-wrapper div {
+  font-family: Bungee;
+  font-size: 50px;
+  text-align: center;
+  color: #f5fefe;
+  padding-top: 10px;
+  user-select: none;
+}
+.event-join-wrapper h6 {
+  width: 504px;
+  margin-left: -252px;
+  margin-top: 22px;
+  margin-bottom: 23px;
+  text-align: center;
+  font-family: Muli;
+  font-size: 20px;
+  color: #f5fefe;
+  user-select: none;
+}
+.start-event {
+  width: 504px;
+  height: 89px;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #ff6602, #f42ea0);
+  margin-left: -252px;
+}
+.join-event {
+  width: 504px;
+  height: 89px;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #f42ea0, #4a42bf);
+  margin-left: -252px;
 }
 .big-logo {
   width: 331px;
@@ -104,8 +147,8 @@ body {
   height: 126px;
 }
 .signup-link {
-  width: 100px;
-  margin-left: -50px;
+  width: 300px;
+  margin-left: -150px;
   text-align: center;
 }
 .signup-link a {
@@ -294,6 +337,32 @@ h5 {
 #second {
   margin-top: 29px;
 }
+.login-wrapper h2 {
+  width: 532px;
+  font-family: Bungee;
+  font-size: 42px;
+  letter-spacing: 1.1px;
+  color: #f5fefe;
+  margin: 58px 0px 58px -266px;
+}
+#event-password {
+  margin-top: 10px;
+}
+#party-button {
+  margin-top: 32px;
+}
+#party-start {
+  text-align: center;
+  margin: 0px 0px 47px 0px;
+}
+.event-created .login-wrapper {
+  margin-left: 432px;
+}
+.event-created h3 {
+  font-family: Bungee;
+  font-size: 20px;
+  display: inline;
+}
 </style>
 
 <script>
@@ -301,13 +370,15 @@ export default {
   data: function() {
     return {
       jwt: null,
-      event_token: localStorage.event_token
+      event_token: localStorage.event_token,
+      admin: null
     };
   },
   created: function() {
     this.jwt = localStorage.jwt;
     console.log("My jwt is", this.jwt);
     console.log("My event token is ", localStorage.event_token);
+    console.log("My user status is ", localStorage.status);
   },
   methods: {
     setJwt: function() {
@@ -315,6 +386,12 @@ export default {
     },
     setToken: function() {
       this.event_token = localStorage.event_token;
+    },
+    setStatus: function() {
+      this.status = localStorage.status;
+      if (localStorage.status === "admin") {
+        this.admin;
+      }
     }
   }
 };
