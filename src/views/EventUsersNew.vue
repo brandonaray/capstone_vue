@@ -1,6 +1,6 @@
 <template>
   <div class="join-event">
-    <div class="container">
+    <div class="login-wrapper">
       <form v-on:submit.prevent="submit()">
         <h1>Join An Event</h1>
         <ul>

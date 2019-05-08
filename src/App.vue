@@ -3,13 +3,11 @@
     <div class="nav" v-if="jwt">
       <img alt="KHP logo" src="./assets/KHP-logo.png" />
       <ul>
-        <router-link tag="li" to="/events/new" v-if="jwt && !event_token"><span>Create Event</span></router-link>
-        <router-link tag="li" to="/events/join" v-if="jwt && !event_token"><span>Join Event</span></router-link>
         <router-link tag="li" to="/songs" v-if="jwt && event_token"><span>Browse Songs</span></router-link>
         <router-link tag="li" to="/events/queue" v-if="jwt && event_token"><span>Song Queue</span></router-link>
         <router-link tag="li" to="/categories" v-if="jwt && event_token"><span>Categories</span></router-link>
+        <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
       </ul>
-      <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
     </div>
     <router-view v-on:changeJwt="setJwt()" v-on:changeToken="setToken()" />
   </div>
@@ -68,7 +66,7 @@ body {
   font-family: Muli;
   font-size: 15px;
   letter-spacing: 0.4px;
-  color: #e1ebeb;
+  color: #f5fefe;
   float: right;
   padding: 0;
 }
@@ -264,6 +262,37 @@ h5 {
 }
 .signup .fun-button {
   margin: 30px 0px 29px -119px;
+}
+.category-cards {
+  margin-left: 0;
+  padding: 0;
+}
+.category-cards div {
+  width: 342px;
+  height: 302px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(to right, #ff6602, #f42ea0);
+  border-image-slice: 1;
+  margin-right: 29px;
+  font-family: Bungee;
+  font-size: 31px;
+  letter-spacing: 1px;
+  color: #f5fefe;
+  padding: 202px 40px 18px 14px;
+}
+.category-cards span::before {
+  content: "\A";
+}
+#eighties {
+  padding-right: 100px;
+}
+#forgot {
+  padding-top: 150px;
+}
+#second {
+  margin-top: 29px;
 }
 </style>
 

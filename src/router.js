@@ -9,6 +9,7 @@ import EventUsersNew from "./views/EventUsersNew.vue";
 import EventSongsIndex from "./views/EventSongsIndex.vue";
 import EventsNew from "./views/EventsNew.vue";
 import PlayScreen from "./views/PlayScreen.vue";
+import CategoriesIndex from "./views/CategoriesIndex.vue";
 
 Vue.use(Router);
 
@@ -68,6 +69,11 @@ export default new Router({
       path: "/events/new",
       name: "create-event",
       component: EventsNew
+    },
+    {
+      path: "/categories",
+      name: "categories",
+      component: CategoriesIndex
     }
   ]
 });
