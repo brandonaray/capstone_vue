@@ -10,6 +10,12 @@ import EventSongsIndex from "./views/EventSongsIndex.vue";
 import EventsNew from "./views/EventsNew.vue";
 import PlayScreen from "./views/PlayScreen.vue";
 import CategoriesIndex from "./views/CategoriesIndex.vue";
+import Eighties from "./views/Eighties.vue";
+import PowerBallads from "./views/PowerBallads.vue";
+import ForgotOnPurpose from "./views/ForgotOnPurpose.vue";
+import OneHit from "./views/OneHit.vue";
+import RealityBites from "./views/RealityBites.vue";
+import LastCall from "./views/LastCall.vue";
 
 Vue.use(Router);
 
@@ -74,6 +80,36 @@ export default new Router({
       path: "/categories",
       name: "categories",
       component: CategoriesIndex
+    },
+    {
+      path: "/categories/80s",
+      name: "eighties",
+      component: Eighties
+    },
+    {
+      path: "/categories/power-ballads",
+      name: "power-ballads",
+      component: PowerBallads
+    },
+    {
+      path: "/categories/forgot",
+      name: "forgot",
+      component: ForgotOnPurpose
+    },
+    {
+      path: "/categories/one-hit",
+      name: "one-hit",
+      component: OneHit
+    },
+    {
+      path: "/categories/reality",
+      name: "reality",
+      component: RealityBites
+    },
+    {
+      path: "/categories/last-call",
+      name: "last-call",
+      component: LastCall
     }
   ]
 });

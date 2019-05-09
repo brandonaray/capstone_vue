@@ -3,11 +3,15 @@
     <div class="nav" v-if="jwt">
       <img alt="KHP logo" src="./assets/KHP-logo.png" />
       <ul>
-        <router-link tag="li" to="/songs" v-if="jwt && event_token && !admin"><span>Browse Songs</span></router-link>
-        <router-link tag="li" to="/events/queue" v-if="jwt && event_token && !admin">
+        <router-link tag="li" to="/songs" v-if="jwt && event_token && !['event-player'].includes($route.name)">
+          <span>Browse Songs</span>
+        </router-link>
+        <router-link tag="li" to="/events/queue" v-if="jwt && event_token && !['event-player'].includes($route.name)">
           <span>Song Queue</span>
         </router-link>
-        <router-link tag="li" to="/categories" v-if="jwt && event_token && !admin"><span>Categories</span></router-link>
+        <router-link tag="li" to="/categories" v-if="jwt && event_token && !['event-player'].includes($route.name)">
+          <span>Categories</span>
+        </router-link>
         <router-link tag="li" id="logout" to="/logout" v-if="jwt">Logout</router-link>
       </ul>
     </div>
@@ -263,10 +267,15 @@ h5 {
   padding-left: 0;
 }
 .player {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
+  width: 1140px;
+  padding-left: 143px;
+  margin-top: ;
+}
+iframe {
+  width: 854px;
+  height: 480px;
+  border: solid 3px #f5fefe;
+  background-color: #060606;
 }
 .video {
   position: absolute;
@@ -309,6 +318,7 @@ h5 {
 .category-cards {
   margin-left: 0;
   padding: 0;
+  margin-bottom: 29px;
 }
 .category-cards div {
   width: 342px;
@@ -327,9 +337,6 @@ h5 {
 }
 .category-cards span::before {
   content: "\A";
-}
-#eighties {
-  padding-right: 100px;
 }
 #forgot {
   padding-top: 150px;
@@ -362,6 +369,36 @@ h5 {
   font-family: Bungee;
   font-size: 20px;
   display: inline;
+}
+#eighties {
+  background-image: url("./assets/80srock.jpg");
+  background-size: 342px 302px;
+  padding-right: 100px;
+}
+#power-ballads {
+  background-image: url("./assets/powerballads.jpg");
+  background-size: 342px 302px;
+}
+#forgot {
+  background-image: url("./assets/songsyouforgot.jpg");
+  background-size: 342px 302px;
+}
+#one-hit {
+  background-image: url("./assets/onehitwonders.jpg");
+  background-size: 342px 302px;
+}
+#reality {
+  background-image: url("./assets/realitybites.jpg");
+  background-size: 342px 302px;
+  padding-right: 100px;
+}
+#last-call {
+  background-image: url("./assets/lastcall.jpg");
+  background-size: 342px 302px;
+}
+#player-queue {
+  height: 310px;
+  margin-bottom: 20px;
 }
 </style>
 
